@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Survey Data Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1220; --card:#101a2e; --text:#e6eefc; --muted:#9cb1d9; --accent:#5aa9ff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;background:radial-gradient(1200px 600px at 10% 0%,#14203a,transparent),radial-gradient(1200px 600px at 90% 0%,#1c2c52,transparent),var(--bg);color:var(--text)}
+    header{padding:48px 20px 16px;max-width:1024px;margin:0 auto}
+    .title{font-size:40px;line-height:1.1;margin:0 0 8px;font-weight:800}
+    .subtitle{color:var(--muted);margin:0 0 24px;font-size:16px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(8px);border-radius:16px;padding:24px;margin:12px 0}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .btn{display:inline-block;background:var(--accent);color:#071020;text-decoration:none;padding:12px 16px;border-radius:10px;font-weight:700;border:0;cursor:pointer}
+    .btn.secondary{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.2)}
+    footer{max-width:1024px;margin:32px auto;padding:0 20px;color:var(--muted);font-size:13px}
+    code{background:#0d1628;border:1px solid rgba(255,255,255,.08);padding:2px 6px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="title">Survey Data Dashboard</h1>
+    <p class="subtitle">Clean, validate, weight, and visualize survey files online. Backend runs on Flask; this page is hosted by GitHub Pages.</p>
+
+    <div class="card">
+      <h2 style="margin:0 0 12px;font-size:20px">Launch the App</h2>
+      <p style="margin:0 0 12px">Your backend URL (Render/Railway/Heroku/Fly). Update the link below once deployed.</p>
+      <p style="margin:0 16px 0 0">
+        <a id="launch" class="btn" href="#" target="_blank" rel="noopener">Open Dashboard</a>
+        <a class="btn secondary" href="https://github.com/kavinkumar2503/SURVEY-data-" target="_blank" rel="noopener">View Source</a>
+      </p>
+      <p id="hint" style="margin:12px 0 0;color:#ffb86b;display:none">Set BACKEND_URL to your deployed Flask URL.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3 style="margin:0 0 10px;font-size:18px">How this works</h3>
+        <ul style="margin:0 0 0 18px;line-height:1.6">
+          <li>This static page is served by GitHub Pages.</li>
+          <li>Your Flask app runs elsewhere and is linked here.</li>
+          <li>Keep templates (Jinja) in the repo; they aren’t used by Pages.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 10px;font-size:18px">Deploy the backend</h3>
+        <ol style="margin:0 0 0 18px;line-height:1.6">
+          <li>Create a Web Service from this repo on Render or Railway.</li>
+          <li>Build: <code>pip install -r requirements.txt</code></li>
+          <li>Start: <code>python gov.py</code></li>
+          <li>Environment: set <code>OPENAI_API_KEY</code> (optional), <code>OPENAI_API_BASE</code>, <code>OPENAI_MODEL</code>.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 10px;font-size:18px">Need help?</h3>
+        <p style="margin:0">Check the README in the repo for full setup and troubleshooting.</p>
+      </div>
+    </div>
+  </header>
+
+  <footer>
+    <div>Project: <a href="https://github.com/kavinkumar2503/SURVEY-data-" target="_blank" rel="noopener" style="color:#cfe3ff">kavinkumar2503/SURVEY-data-</a></div>
+  </footer>
+
+  <script>
+    // Set your deployed Flask URL here once ready
+    const BACKEND_URL = '';
+    const btn = document.getElementById('launch');
+    const hint = document.getElementById('hint');
+    if (BACKEND_URL) {
+      btn.href = BACKEND_URL;
+      hint.style.display = 'none';
+    } else {
+      btn.href = 'https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site';
+      hint.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
